@@ -93,6 +93,55 @@ sqlite3 outputs/uk_retail_sales.db
 .read sql/analysis_queries.sql
 ```
 
+## View and update retail orders
+
+The source order data is stored in `data/uk_retail_sales.csv`. Each row represents one retail order.
+
+### Open the order dataset
+
+```powershell
+code data\uk_retail_sales.csv
+```
+
+Edit the required order and save the file with `Ctrl + S`.
+
+### Re-run the Python analysis
+
+```powershell
+python python\analysis.py
+```
+
+This validates the updated data, prints the latest KPIs and refreshes the charts in `outputs/python_charts`.
+
+### Rebuild the SQLite database
+
+```powershell
+python python\load_sqlite.py
+```
+
+### Open the generated charts
+
+```powershell
+start outputs\python_charts
+```
+
+### Open the Excel dashboard
+
+```powershell
+start outputs\UK_Retail_Sales_Analytics_Dashboard.xlsx
+```
+
+Use the **Sales Data** worksheet to filter and inspect individual orders. Changes made to the CSV update the Python and SQL outputs; the Excel workbook contains its own copy of the data, so equivalent order changes must also be made in its **Sales Data** worksheet.
+
+### Publish order updates to GitHub
+
+```powershell
+git status
+git add .
+git commit -m "Update retail order data"
+git push
+```
+
 ## Key analytical techniques
 
 - Data-quality checks for nulls, duplicates and invalid values
