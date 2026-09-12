@@ -1,5 +1,7 @@
 name: Deploy retail dashboard to GitHub Pages
 
+# A new push creates a fresh Pages artifact.
+
 on:
   push:
     branches: [main]
