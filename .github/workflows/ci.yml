@@ -16,3 +16,5 @@ jobs:
       - run: pip install -r requirements.txt
       - run: python python/analysis.py
       - run: python python/load_sqlite.py
+      - run: node --check docs/app.js
+      - run: test -f docs/index.html && test -f docs/styles.css
