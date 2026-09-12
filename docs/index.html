@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Interactive UK retail sales and customer insights dashboard">
+  <title>UK Retail Sales & Customer Insights</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.5.3/papaparse.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-3.1.0.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">📊 Retail Intelligence</div>
+    <p class="eyebrow">PORTFOLIO DASHBOARD</p>
+    <label for="region">UK region</label>
+    <select id="region"><option value="All">All regions</option></select>
+    <label for="channel">Sales channel</label>
+    <select id="channel"><option value="All">All channels</option></select>
+    <label for="category">Product category</label>
+    <select id="category"><option value="All">All categories</option></select>
+    <button id="reset">Reset filters</button>
+    <div class="source">
+      <span class="status-dot"></span>
+      <div><strong>Dataset connected</strong><small>1,800 synthetic UK orders</small></div>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <div>
+        <p class="eyebrow">UK RETAIL ANALYTICS • 2024–2025</p>
+        <h1>Sales & Customer Insights</h1>
+        <p class="subtitle">Interactive performance analysis built from the project’s validated CSV dataset.</p>
+      </div>
+      <a class="repo-link" href="https://github.com/Banoth281/uk-retail-sales-analytics" target="_blank" rel="noreferrer">View source ↗</a>
+    </header>
+
+    <section class="kpis">
+      <article><span>Orders</span><strong id="orders">—</strong><small id="orders-note">Filtered transactions</small></article>
+      <article><span>Revenue</span><strong id="revenue">—</strong><small>Gross sales</small></article>
+      <article><span>Profit</span><strong id="profit">—</strong><small id="margin">— margin</small></article>
+      <article><span>Average order</span><strong id="aov">—</strong><small>Revenue per order</small></article>
+      <article><span>Return rate</span><strong id="returns">—</strong><small id="rating">— average rating</small></article>
+    </section>
+
+    <section class="grid two">
+      <article class="panel">
+        <div class="panel-heading"><div><p class="eyebrow">TREND</p><h2>Monthly revenue and profit</h2></div></div>
+        <div id="monthly-chart" class="chart"></div>
+      </article>
+      <article class="panel">
+        <div class="panel-heading"><div><p class="eyebrow">PRODUCTS</p><h2>Revenue by category</h2></div></div>
+        <div id="category-chart" class="chart"></div>
+      </article>
+    </section>
+
+    <section class="grid two">
+      <article class="panel">
+        <div class="panel-heading"><div><p class="eyebrow">GEOGRAPHY</p><h2>Profit by UK region</h2></div></div>
+        <div id="region-chart" class="chart"></div>
+      </article>
+      <article class="panel">
+        <div class="panel-heading"><div><p class="eyebrow">CHANNEL MIX</p><h2>Revenue contribution</h2></div></div>
+        <div id="channel-chart" class="chart"></div>
+      </article>
+    </section>
+
+    <section class="panel insights">
+      <div class="panel-heading"><div><p class="eyebrow">DECISION SUPPORT</p><h2>Current filter insights</h2></div></div>
+      <div id="insight-cards" class="insight-grid"></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-heading"><div><p class="eyebrow">DETAIL</p><h2>Highest-value orders</h2></div><span id="row-count"></span></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Order</th><th>Date</th><th>Region</th><th>Channel</th><th>Category</th><th>Revenue</th><th>Profit</th><th>Rating</th><th>Returned</th></tr></thead>
+          <tbody id="orders-table"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>All records are synthetic and created solely for analytics and portfolio demonstration.</footer>
+  </main>
+  <div id="loading">Loading validated retail data…</div>
+  <script src="app.js"></script>
+</body>
+</html>
