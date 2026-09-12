@@ -2,6 +2,12 @@
 
 A portfolio-ready data analytics project examining two years of UK retail transactions. It combines Excel, SQL and Python to identify revenue trends, profitability drivers, regional performance, channel mix, customer experience and return behaviour.
 
+## Live interactive dashboard
+
+**[Open the UK Retail Sales Intelligence demo](https://banoth281.github.io/uk-retail-sales-analytics/)**
+
+Use the region, channel and category filters to recalculate KPIs, charts, business insights and top-order results directly from the project dataset.
+
 ## Project objectives
 
 - Track revenue, profit, orders, units, margin and average order value.
